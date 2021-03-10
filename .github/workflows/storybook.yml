@@ -1,4 +1,4 @@
-name: Deploy Storybook
+name: Build Storybook for GH Pages
 on:
   push:
     paths: ['stories/**', 'src/**'] # Trigger the action only when files change in the folders defined here
