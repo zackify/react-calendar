@@ -2,7 +2,7 @@
 
 100% test coverage, responsive, and flexible event calendar for React.
 
-[See In Action]()
+[See In Action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 Backstory: After using react-big-calendar for years, I decided to create my own that is simpler to use, allows for easy customization, and uses modern React (no deprecated methods).
 
@@ -18,7 +18,7 @@ npm install react-better-calendar date-fns
 
 ## Basic Usage
 
-[See this code in action]()
+[See this code in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ```tsx
 import {
@@ -86,7 +86,7 @@ import 'react-big-calendar/dist/calendar-tailwind.css';
 
 This is a monthly view similar to react-big-calendar or a Calendar application. It makes it easy to load events 1 month at a time, and render custom elements on each day.
 
-[See in action]()
+[See in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ### Props
 
@@ -109,7 +109,7 @@ No props at this time
 
 View 1 week at a time, useful for scheduling appointments, or rendering events in a smaller area of the screen
 
-[See in action]()
+[See in action](https://calendar.zach.codes/?path=/story/weekly-calendar--basic-weekly-calendar)
 
 ```js
 <WeeklyCalendar week={new Date()}>
@@ -149,7 +149,7 @@ A view only component to flex the buttons and content area
 
 Renders the buttons to view an individual day
 
-- omitDays, same as the `MonthlyBody` prop
+- `omitDays`, same as the `MonthlyBody` prop
 
 `WeeklyBody`
 
@@ -194,7 +194,7 @@ export const MonthlyNav = () => {
 };
 ```
 
-It's rendering some button elements, and then the current month. If it's no the current year, it renders the year as well.
+It's rendering some button elements, and then the current month. If it's not the current year, it renders the year as well.
 
 You can copy / paste this component into your own repo. The magic piece is `useMonthlyCalendar`. This hook will let you access anything from the calendar context.
 

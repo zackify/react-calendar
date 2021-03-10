@@ -3,16 +3,6 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { startOfMonth } from 'date-fns';
 import { MonthlyCalendarWithDateChange } from './TestComponents';
 
-// Set the year to 2021 globally so that these tests pass if they run in future years
-let clock: any;
-beforeEach(() => {
-  var FakeTimers = require('@sinonjs/fake-timers');
-  clock = FakeTimers.install({ now: new Date(2021, 2, 2) });
-});
-afterAll(() => {
-  clock.uninstall();
-});
-
 test('Previous goes back 1 month', () => {
   let spy = jest.fn();
   render(

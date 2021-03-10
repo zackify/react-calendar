@@ -21,7 +21,7 @@ test('Renders full week initially', () => {
   screen.getByText('Max Smith');
   screen.getByText('Code');
 
-  screen.getByText('Feb 28th 19:39');
+  screen.getByText('Mar 1st 24:00');
 });
 
 test('Hides event from next week', () => {
@@ -42,7 +42,7 @@ test('Hides event from next week', () => {
   screen.getByText('Max Smith');
   screen.getByText('Code');
 
-  screen.getByText('Feb 28th 19:39');
+  screen.getByText('Mar 1st 24:00');
   expect(screen.queryByText('Next week')).toEqual(null);
 });
 
@@ -64,7 +64,7 @@ test('Renders single day after click', () => {
   expect(screen.queryByText('Max Smith')).toEqual(null);
   expect(screen.queryByText('Code')).toEqual(null);
 
-  screen.getByText('19:39');
+  screen.getByText('24:00');
 });
 
 test('Renders week after clicking a selected day', () => {
