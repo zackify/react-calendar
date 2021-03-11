@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    content: ['./src/**/*.tsx'],
+    content: ['./src/**/*.tsx', './test/**/*.tsx'],
     options: {
       safelist: ['lg:grid-cols-5', 'lg:grid-cols-6', 'lg:grid-cols-7'],
       keyframes: true,
