@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "license": "MIT",
-  "name": "react-better-calendar",
+  "name": "@zach.codes/react-calendar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -39,14 +39,14 @@
     "trailingComma": "es5"
   },
   "author": "Zach Silveira",
-  "module": "dist/react-better-calendar.esm.js",
+  "module": "dist/@zach.codes/react-calendar.esm.js",
   "size-limit": [
     {
-      "path": "dist/react-better-calendar.cjs.production.min.js",
+      "path": "dist/@zach.codes/react-calendar.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-better-calendar.esm.js",
+      "path": "dist/@zach.codes/react-calendar.esm.js",
       "limit": "10 KB"
     }
   ],

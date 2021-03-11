@@ -1,4 +1,4 @@
-# React Better Calendar
+# React Calendar
 
 100% test coverage, responsive, and flexible event calendar for React.
 
@@ -7,7 +7,7 @@
 Backstory: After using react-big-calendar for years, I decided to create my own that is simpler to use, allows for easy customization, and uses modern React (no deprecated methods).
 
 ```
-npm install react-better-calendar date-fns
+npm install @zach.codes/react-calendar date-fns
 ```
 
 - [Basic Usage](#Basic-Usage)
@@ -26,7 +26,7 @@ import {
   MonthlyCalendar,
   MonthlyNav,
   DefaultMonthlyEventItem,
-} from 'react-better-calendar';
+} from '@zach.codes/react-calendar';
 
 export const MyMonthlyCalendar = () => {
   let [currentMonth, setCurrentMonth] = useState<Date>(
@@ -72,7 +72,7 @@ This library uses [Tailwind](https://tailwindcss.com/). This gives you two optio
 
 ### I'm already using Tailwind
 
-Awesome! You need to add `node_modules/react-better-calendar/dist/**/*.js` to your `tailwind.config.js` to ensure the required classes aren't purged on your production build.
+Awesome! You need to add `node_modules/@zach.codes/react-calendar/dist/**/*.js` to your `tailwind.config.js` to ensure the required classes aren't purged on your production build.
 
 ### I'm not using Tailwind
 
@@ -164,7 +164,7 @@ This library has very few props to understand. It takes a component-first approa
 Building a calendar is highly opinionated. This library to let you easily customize any piece of it. Let's take a look at the `MonthlyNav` component:
 
 ```tsx
-import { useMonthlyCalendar } from 'react-better-calendar';
+import { useMonthlyCalendar } from '@zach.codes/react-calendar';
 
 export const MonthlyNav = () => {
   let { currentMonth, onCurrentMonthChange } = useMonthlyCalendar();
