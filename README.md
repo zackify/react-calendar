@@ -161,7 +161,7 @@ Renders the buttons to view an individual day
 
 This library has very few props to understand. It takes a component-first approach instead of endless prop options.
 
-Building a calendar is highly opinionated. This library to let you easily customize any piece of it. Let's take a look at the `MonthlyNav` component:
+Building a calendar is highly opinionated. This library lets you easily customize any piece of it. Let's take a look at the `MonthlyNav` component:
 
 ```tsx
 import { useMonthlyCalendar } from '@zach.codes/react-calendar';
