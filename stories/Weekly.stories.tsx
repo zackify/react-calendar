@@ -7,12 +7,13 @@ import {
   WeeklyBody,
   DefaultWeeklyEventItem,
   WeeklyContainer,
+  WeeklyResponsiveContainer,
 } from '../src';
 import '../src/tailwind.css';
 
 export const BasicWeeklyCalendar: Story = args => {
   return (
-    <div className="border p-4 md:w-3/4 lg:w-1/2 w-full">
+    <WeeklyResponsiveContainer>
       <WeeklyCalendar week={args.week}>
         <WeeklyContainer>
           <WeeklyDays omitDays={args.hideWeekend ? [0, 6] : undefined} />
@@ -47,7 +48,7 @@ export const BasicWeeklyCalendar: Story = args => {
           />
         </WeeklyContainer>
       </WeeklyCalendar>
-    </div>
+    </WeeklyResponsiveContainer>
   );
 };
 

@@ -147,3 +147,11 @@ export function WeeklyBody<EventItem>({
     </div>
   );
 }
+
+export const WeeklyResponsiveContainer = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+  return <div className="border p-4 md:w-3/4 lg:w-1/2 w-full">{children}</div>;
+};
