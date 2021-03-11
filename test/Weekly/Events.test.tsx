@@ -51,7 +51,7 @@ test('Renders single day after click', () => {
     <WeeklyCalendarTest
       week={new Date(testDate)}
       events={[
-        { title: 'Janet smith', date: subDays(new Date(testDate), 2) },
+        { title: 'Janet smith', date: subDays(new Date(testDate), 3) },
         { title: 'Max Smith', date: subDays(new Date(testDate), 1) },
         { title: 'Code', date: subHours(new Date(testDate), 4) },
       ]}
@@ -72,7 +72,7 @@ test('Renders week after clicking a selected day', () => {
     <WeeklyCalendarTest
       week={new Date(testDate)}
       events={[
-        { title: 'Janet smith', date: subDays(new Date(testDate), 2) },
+        { title: 'Janet smith', date: subDays(new Date(testDate), 3) },
         { title: 'Max Smith', date: subDays(new Date(testDate), 1) },
         { title: 'Code', date: subHours(new Date(testDate), 4) },
       ]}
