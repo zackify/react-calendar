@@ -127,7 +127,7 @@ export function WeeklyBody<EventItem>({
 }: WeeklyBodyProps<EventItem>) {
   let { week, selectedDay } = useWeeklyCalendar();
   return (
-    <div className="overflow-x-scroll max-h-96" style={style}>
+    <div className="overflow-auto max-h-96" style={style}>
       <ul className="divide-y divide-gray-200 ">
         {events.map((item) => {
           // If they select a single day, filter out events for different days

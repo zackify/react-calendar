@@ -166,7 +166,7 @@ export function MonthlyBody<MonthData>({
                 <div className="font-bold">{dayNumber}</div>
                 <div className="lg:hidden block">{format(day, 'EEEE')}</div>
               </div>
-              <ul className="divide-gray-200 divide-y overflow-hidden max-h-36 overflow-y-scroll">
+              <ul className="divide-gray-200 divide-y overflow-hidden max-h-36 overflow-y-auto">
                 {renderDay(dayData)}
               </ul>
             </div>
