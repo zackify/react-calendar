@@ -74,17 +74,6 @@ This library uses [Tailwind](https://tailwindcss.com/). This gives you two optio
 
 Awesome! You need to add `node_modules/@zach.codes/react-calendar/dist/**/*.js` to your `tailwind.config.js` to ensure the required classes aren't purged on your production build.
 
-Also, the grid-cols are set dynamically based on how many days of the week you show, could be 5, 6, or 7. This needs to be added to the purge config in your tailwind.config.js as well:
-
-```js
-{
- purge: {
-    content:[ 'public/**/*.tsx'],
-    safelist: ['lg:grid-cols-5', 'lg:grid-cols-6', 'lg:grid-cols-7'],
-  }
-}
-```
-
 ### I'm not using Tailwind
 
 No problem! The library includes the minimal CSS required to render the components. Somewhere in your app, you need to import our CSS:

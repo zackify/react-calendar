@@ -120,6 +120,15 @@ const handleOmittedDays = ({ days, omitDays }: OmittedDaysProps) => {
   return { headings, daysToRender, padding };
 };
 
+//to prevent these from being purged in production, we make a lookup object
+const headingClasses = {
+  l3: 'lg:grid-cols-3',
+  l4: 'lg:grid-cols-4',
+  l5: 'lg:grid-cols-5',
+  l6: 'lg:grid-cols-6',
+  l7: 'lg:grid-cols-7',
+};
+
 export function MonthlyBody<MonthData>({
   omitDays,
   events,
@@ -135,7 +144,10 @@ export function MonthlyBody<MonthData>({
   return (
     <div className="bg-white border-l-2 border-t-2">
       <div
-        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-${headings.length}`}
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 ${
+          //@ts-ignore
+          headingClasses[`l${headings.length}`]
+        }`}
       >
         {headings.map(day => (
           <div
