@@ -79,7 +79,7 @@ Awesome! You need to add `node_modules/@zach.codes/react-calendar/dist/**/*.js` 
 No problem! The library includes the minimal CSS required to render the components. Somewhere in your app, you need to import our CSS:
 
 ```js
-import 'react-big-calendar/dist/calendar-tailwind.css';
+import '@zach.codes/react-calendar/dist/calendar-tailwind.css';
 ```
 
 ## MonthlyCalendar
