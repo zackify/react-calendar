@@ -21,7 +21,7 @@ npm install @zach.codes/react-calendar date-fns
 [See this code in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ```tsx
-import {format, subHours} from 'date-fns'
+import {format, subHours, startOfMonth} from 'date-fns'
 import {
   MonthlyBody,
   MonthlyCalendar,
