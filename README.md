@@ -21,6 +21,7 @@ npm install @zach.codes/react-calendar date-fns
 [See this code in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ```tsx
+import {format, subHours} from 'date-fns'
 import {
   MonthlyBody,
   MonthlyCalendar,
@@ -50,7 +51,8 @@ export const MyMonthlyCalendar = () => {
             <DefaultMonthlyEventItem
               key={index}
               title={item.title}
-              date={item.date}
+              // Format the date here to be in the format you prefer
+              date={format(item.date, 'k:mm')}
             />
           ))
         }
