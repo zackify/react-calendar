@@ -18,7 +18,7 @@ type OmittedDaysProps = {
   omitDays?: number[];
 };
 
-const handleOmittedDays = ({ days, omitDays }: OmittedDaysProps) => {
+export const handleOmittedDays = ({ days, omitDays }: OmittedDaysProps) => {
   let headings = daysInWeek;
   let daysToRender = days;
 
