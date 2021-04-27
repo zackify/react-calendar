@@ -4,6 +4,7 @@ import {
   DefaultMonthlyEventItem,
   MonthlyBody,
   MonthlyCalendar,
+  MonthlyDay,
   MonthlyNav,
 } from '../../src';
 
@@ -26,19 +27,19 @@ export const MonthlyCalendarTest = ({
       onCurrentMonthChange={onCurrentMonthChange}
     >
       <MonthlyNav />
-      <MonthlyBody
-        omitDays={omitDays}
-        events={events}
-        renderDay={data =>
-          data.map((item, index) => (
-            <DefaultMonthlyEventItem
-              key={index}
-              title={item.title}
-              date={format(item.date, 'k:mm')}
-            />
-          ))
-        }
-      />
+      <MonthlyBody omitDays={omitDays} events={events}>
+        <MonthlyDay<Props['events'][0]>
+          renderDay={data =>
+            data.map((item, index) => (
+              <DefaultMonthlyEventItem
+                key={index}
+                title={item.title}
+                date={format(item.date, 'k:mm')}
+              />
+            ))
+          }
+        />
+      </MonthlyBody>
     </MonthlyCalendar>
   );
 };
