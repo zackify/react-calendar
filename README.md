@@ -21,9 +21,10 @@ npm install @zach.codes/react-calendar date-fns
 [See this code in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ```tsx
-import {format, subHours, startOfMonth} from 'date-fns'
+import { format, subHours, startOfMonth } from 'date-fns';
 import {
   MonthlyBody,
+  MonthlyDay,
   MonthlyCalendar,
   MonthlyNav,
   DefaultMonthlyEventItem,
@@ -46,17 +47,20 @@ export const MyMonthlyCalendar = () => {
           { title: 'Call John', date: subHours(new Date(), 1) },
           { title: 'Meeting with Bob', date: new Date() },
         ]}
-        renderDay={data =>
-          data.map((item, index) => (
-            <DefaultMonthlyEventItem
-              key={index}
-              title={item.title}
-              // Format the date here to be in the format you prefer
-              date={format(item.date, 'k:mm')}
-            />
-          ))
-        }
-      />
+      >
+        <MonthlyDay<EventType>
+          renderDay={data =>
+            data.map((item, index) => (
+              <DefaultMonthlyEventItem
+                key={index}
+                title={item.title}
+                // Format the date here to be in the format you prefer
+                date={format(item.date, 'k:mm')}
+              />
+            ))
+          }
+        />
+      </MonthlyBody>
     </MonthlyCalendar>
   );
 };
@@ -105,6 +109,9 @@ No props at this time
 
 - `omitDays` lets you hide certain days from the calendar, for instance, hide Saturday and Sunday. Days are represented as 0-6, as seen in the [date-fns](https://date-fns.org/v2.19.0/docs/getDay#returns) documentation. Hiding Monday would be `omitDays={[1]}` Hiding the weekend would be `omitDays={[0, 6]}`
 - `events` this is an array of events, the only thing required inside each object is a `date` field with a Date object representing the exact time of the event
+
+`MonthlyDay`
+
 - `renderDay` callback function that is passed an array of events for each day displayed, letting you render the events for the day
 
 ## WeeklyCalendar

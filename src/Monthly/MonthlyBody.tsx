@@ -4,10 +4,9 @@ import { daysInWeek } from '../shared';
 import { format, getDay, isSameDay } from 'date-fns';
 
 const MonthlyBodyContext = React.createContext({} as any);
-type DefaultDayData = { date: Date };
 type BodyState<DayData> = {
   day: Date;
-  events: (DayData & DefaultDayData)[];
+  events: DayData[];
 };
 
 export function useMonthlyBody<DayData>() {
@@ -56,8 +55,7 @@ type MonthlyBodyProps<DayData> = {
     ex: [0,6] would remove sunday and saturday from rendering
   */
   omitDays?: number[];
-  events: (DayData & DefaultDayData)[];
-
+  events: (DayData & { date: Date })[];
   children: ReactNode;
 };
 
@@ -114,7 +112,7 @@ export function MonthlyBody<DayData>({
 }
 
 type MonthlyDayProps<DayData> = {
-  renderDay: (events: (DayData & DefaultDayData)[]) => ReactNode;
+  renderDay: (events: DayData[]) => ReactNode;
 };
 export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
   let { day, events } = useMonthlyBody<DayData>();
