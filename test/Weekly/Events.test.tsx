@@ -2,6 +2,7 @@ import React from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { addDays, subDays, subHours } from 'date-fns';
 import { WeeklyCalendarTest } from './TestComponents';
+import { WeeklyResponsiveContainer } from '../../src';
 
 let testDate = '2021-03-03T00:39:27.448Z';
 test('Renders full week initially', () => {
@@ -48,14 +49,16 @@ test('Hides event from next week', () => {
 
 test('Renders single day after click', () => {
   render(
-    <WeeklyCalendarTest
-      week={new Date(testDate)}
-      events={[
-        { title: 'Janet smith', date: subDays(new Date(testDate), 3) },
-        { title: 'Max Smith', date: subDays(new Date(testDate), 1) },
-        { title: 'Code', date: subHours(new Date(testDate), 4) },
-      ]}
-    />
+    <WeeklyResponsiveContainer>
+      <WeeklyCalendarTest
+        week={new Date(testDate)}
+        events={[
+          { title: 'Janet smith', date: subDays(new Date(testDate), 3) },
+          { title: 'Max Smith', date: subDays(new Date(testDate), 1) },
+          { title: 'Code', date: subHours(new Date(testDate), 4) },
+        ]}
+      />
+    </WeeklyResponsiveContainer>
   );
 
   fireEvent.click(screen.getByText('Sunday 28th'));

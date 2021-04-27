@@ -6,6 +6,7 @@ import {
   MonthlyCalendar,
   MonthlyNav,
   DefaultMonthlyEventItem,
+  MonthlyDay,
 } from '../src';
 import '../src/tailwind.css';
 import { EventType, events } from './dummyEvents';
@@ -28,16 +29,19 @@ export const BasicMonthlyCalendar: Story = args => {
           { title: 'Call John', date: subHours(new Date(), 1) },
           { title: 'Meeting with Bob', date: new Date() },
         ]}
-        renderDay={data =>
-          data.map((item, index) => (
-            <DefaultMonthlyEventItem
-              key={index}
-              title={item.title}
-              date={format(item.date, 'k:mm')}
-            />
-          ))
-        }
-      />
+      >
+        <MonthlyDay<EventType>
+          renderDay={data =>
+            data.map((item, index) => (
+              <DefaultMonthlyEventItem
+                key={index}
+                title={item.title}
+                date={format(item.date, 'k:mm')}
+              />
+            ))
+          }
+        />
+      </MonthlyBody>
     </MonthlyCalendar>
   );
 };
@@ -61,16 +65,19 @@ export const MyMonthlyCalendar: Story = args => {
       <MonthlyBody
         omitDays={args.hideWeekend ? [0, 6] : undefined}
         events={eventItems}
-        renderDay={data =>
-          data.map((item, index) => (
-            <DefaultMonthlyEventItem
-              key={index}
-              title={item.title}
-              date={format(item.date, 'k:mm')}
-            />
-          ))
-        }
-      />
+      >
+        <MonthlyDay<EventType>
+          renderDay={data =>
+            data.map((item, index) => (
+              <DefaultMonthlyEventItem
+                key={index}
+                title={item.title}
+                date={format(item.date, 'k:mm')}
+              />
+            ))
+          }
+        />
+      </MonthlyBody>
     </MonthlyCalendar>
   );
 };
@@ -116,16 +123,19 @@ export const AsyncEvents: Story = args => {
       <MonthlyBody
         omitDays={args.hideWeekend ? [0, 6] : undefined}
         events={myEvents}
-        renderDay={data =>
-          data.map((item, index) => (
-            <DefaultMonthlyEventItem
-              key={index}
-              title={item.title}
-              date={format(item.date, 'k:mm')}
-            />
-          ))
-        }
-      />
+      >
+        <MonthlyDay<EventType>
+          renderDay={data =>
+            data.map((item, index) => (
+              <DefaultMonthlyEventItem
+                key={index}
+                title={item.title}
+                date={format(item.date, 'k:mm')}
+              />
+            ))
+          }
+        />
+      </MonthlyBody>
     </MonthlyCalendar>
   );
 };
