@@ -120,7 +120,6 @@ export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
 
   return (
     <div
-      key={day.toISOString()}
       aria-label={`Events for day ${dayNumber}`}
       className="h-48 p-2 border-b-2 border-r-2"
     >
