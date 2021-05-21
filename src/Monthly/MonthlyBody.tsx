@@ -115,8 +115,9 @@ type MonthlyDayProps<DayData> = {
   renderDay: (events: DayData[]) => ReactNode;
 };
 export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
+  let { locale } = useMonthlyCalendar();
   let { day, events } = useMonthlyBody<DayData>();
-  let dayNumber = format(day, 'd');
+  let dayNumber = format(day, 'd', { locale });
 
   return (
     <div
@@ -125,7 +126,7 @@ export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
     >
       <div className="flex justify-between">
         <div className="font-bold">{dayNumber}</div>
-        <div className="lg:hidden block">{format(day, 'EEEE')}</div>
+        <div className="lg:hidden block">{format(day, 'EEEE', { locale })}</div>
       </div>
       <ul className="divide-gray-200 divide-y overflow-hidden max-h-36 overflow-y-auto">
         {renderDay(events)}

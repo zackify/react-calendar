@@ -3,6 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { addDays, subDays, subHours } from 'date-fns';
 import { WeeklyCalendarTest } from './TestComponents';
 import { WeeklyResponsiveContainer } from '../../src';
+import { zhCN } from 'date-fns/locale';
 
 let testDate = '2021-03-03T00:39:27.448Z';
 test('Renders full week initially', () => {
@@ -94,4 +95,24 @@ test('Renders week after clicking a selected day', () => {
   screen.getByText('Janet smith');
   screen.getByText('Max Smith');
   screen.getByText('Code');
+});
+
+test('Renders using a custom locale', () => {
+  render(
+    <WeeklyCalendarTest
+      locale={zhCN}
+      week={new Date(testDate)}
+      events={[
+        { title: 'Janet smith', date: subDays(new Date(testDate), 2) },
+        { title: 'Max Smith', date: subDays(new Date(testDate), 1) },
+        { title: 'Code', date: subHours(new Date(testDate), 4) },
+      ]}
+    />
+  );
+  // check that all 3 are on screen
+  screen.getByText('Janet smith');
+  screen.getByText('Max Smith');
+  screen.getByText('Code');
+
+  screen.getByText('3月 1日 24:00');
 });

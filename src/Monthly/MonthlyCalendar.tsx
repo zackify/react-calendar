@@ -12,6 +12,7 @@ import React, { ReactNode, useContext } from 'react';
 type CalendarState = {
   days: Date[];
   currentMonth: Date;
+  locale?: Locale;
   onCurrentMonthChange: (date: Date) => any;
 };
 
@@ -22,12 +23,14 @@ const MonthlyCalendarContext = React.createContext<CalendarState>(
 export const useMonthlyCalendar = () => useContext(MonthlyCalendarContext);
 
 type Props = {
+  locale?: Locale;
   children: ReactNode;
   currentMonth: Date;
   onCurrentMonthChange: (date: Date) => any;
 };
 
 export const MonthlyCalendar = ({
+  locale,
   currentMonth,
   onCurrentMonthChange,
   children,
@@ -42,6 +45,7 @@ export const MonthlyCalendar = ({
     <MonthlyCalendarContext.Provider
       value={{
         days,
+        locale,
         onCurrentMonthChange,
         currentMonth: monthStart,
       }}
@@ -52,7 +56,7 @@ export const MonthlyCalendar = ({
 };
 
 export const MonthlyNav = () => {
-  let { currentMonth, onCurrentMonthChange } = useMonthlyCalendar();
+  let { locale, currentMonth, onCurrentMonthChange } = useMonthlyCalendar();
 
   return (
     <div className="flex justify-end mb-4">
@@ -65,7 +69,8 @@ export const MonthlyNav = () => {
       <div className="ml-4 mr-4 w-32 text-center" aria-label="Current Month">
         {format(
           currentMonth,
-          getYear(currentMonth) === getYear(new Date()) ? 'LLLL' : 'LLLL yyyy'
+          getYear(currentMonth) === getYear(new Date()) ? 'LLLL' : 'LLLL yyyy',
+          { locale }
         )}
       </div>
       <button

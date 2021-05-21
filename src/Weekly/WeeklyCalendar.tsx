@@ -18,6 +18,7 @@ import { daysInWeek } from '../shared';
 type State = {
   week: Date;
   selectedDay?: Date;
+  locale?: Locale;
   changeSelectedDay: (day?: Date) => any;
 };
 
@@ -27,9 +28,14 @@ export const useWeeklyCalendar = () => useContext(WeeklyContext);
 type WeeklyCalendarProps = {
   week: Date;
   children: ReactNode;
+  locale?: Locale;
 };
 
-export const WeeklyCalendar = ({ week, children }: WeeklyCalendarProps) => {
+export const WeeklyCalendar = ({
+  locale,
+  week,
+  children,
+}: WeeklyCalendarProps) => {
   let [selectedDay, setSelectedDay] = useState<Date>();
 
   //clear the selected day if the week changes
@@ -40,6 +46,7 @@ export const WeeklyCalendar = ({ week, children }: WeeklyCalendarProps) => {
   return (
     <WeeklyContext.Provider
       value={{
+        locale,
         selectedDay,
         week: startOfWeek(week),
         changeSelectedDay: setSelectedDay,
@@ -62,9 +69,9 @@ type DayButtonProps = {
 };
 
 const DayButton = ({ day }: DayButtonProps) => {
-  let { week, selectedDay, changeSelectedDay } = useWeeklyCalendar();
+  let { locale, week, selectedDay, changeSelectedDay } = useWeeklyCalendar();
   let isSelected = selectedDay ? getDay(selectedDay) === day.day : false;
-  let currentDate = setDay(week, day.day);
+  let currentDate = setDay(week, day.day, { locale });
   return (
     <li
       onClick={() => changeSelectedDay(isSelected ? undefined : currentDate)}
@@ -79,7 +86,7 @@ const DayButton = ({ day }: DayButtonProps) => {
         }`}
       >
         <p className="font-medium text-sm text-gray-800">
-          {day.label} {format(currentDate, 'do')}
+          {day.label} {format(currentDate, 'do', { locale })}
         </p>
       </div>
     </li>
@@ -94,11 +101,11 @@ export const WeeklyDays = ({ omitDays }: WeeklyDaysProps) => {
   let daysToRender = daysInWeek;
 
   if (omitDays) {
-    daysToRender = daysInWeek.filter((day) => !omitDays.includes(day.day));
+    daysToRender = daysInWeek.filter(day => !omitDays.includes(day.day));
   }
   return (
     <ul className="grid md:grid-cols-1 grid-cols-2 gap-2">
-      {daysToRender.map((day) => (
+      {daysToRender.map(day => (
         <DayButton key={day.day} day={day} />
       ))}
     </ul>
@@ -129,7 +136,7 @@ export function WeeklyBody<EventItem>({
   return (
     <div className="overflow-auto max-h-96" style={style}>
       <ul className="divide-y divide-gray-200 ">
-        {events.map((item) => {
+        {events.map(item => {
           // If they select a single day, filter out events for different days
           if (selectedDay) {
             if (!isSameDay(selectedDay, item.date)) return null;

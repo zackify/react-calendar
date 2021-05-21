@@ -9,6 +9,7 @@ import {
 } from '../../src';
 
 type Props = {
+  locale?: Locale;
   currentMonth: Date;
   onCurrentMonthChange: (date: Date) => any;
   omitDays?: number[];
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export const MonthlyCalendarTest = ({
+  locale,
   currentMonth,
   onCurrentMonthChange,
   omitDays,
@@ -23,6 +25,7 @@ export const MonthlyCalendarTest = ({
 }: Props) => {
   return (
     <MonthlyCalendar
+      locale={locale}
       currentMonth={currentMonth}
       onCurrentMonthChange={onCurrentMonthChange}
     >
@@ -34,7 +37,7 @@ export const MonthlyCalendarTest = ({
               <DefaultMonthlyEventItem
                 key={index}
                 title={item.title}
-                date={format(item.date, 'k:mm')}
+                date={format(item.date, 'k:mm', { locale })}
               />
             ))
           }
