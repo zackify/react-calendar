@@ -98,10 +98,13 @@ type WeeklyDaysProps = {
 };
 
 export const WeeklyDays = ({ omitDays }: WeeklyDaysProps) => {
-  let daysToRender = daysInWeek;
+  let { locale } = useWeeklyCalendar();
+  let daysToRender = daysInWeek({ locale });
 
   if (omitDays) {
-    daysToRender = daysInWeek.filter(day => !omitDays.includes(day.day));
+    daysToRender = daysInWeek({ locale }).filter(
+      day => !omitDays.includes(day.day)
+    );
   }
   return (
     <ul className="grid md:grid-cols-1 grid-cols-2 gap-2">

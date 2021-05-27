@@ -5,7 +5,7 @@ import {
   MonthlyCalendarTest,
   MonthlyCalendarWithDateChange,
 } from './TestComponents';
-import { zhCN } from 'date-fns/locale';
+import { es, zhCN } from 'date-fns/locale';
 
 test('Renders event on correct day', () => {
   render(
@@ -63,4 +63,43 @@ test('Renders event with locale', () => {
 
   let eventItem = screen.getAllByText('Call bob');
   expect(eventItem.length).toEqual(1);
+});
+
+test('Renders weekdays in english', () => {
+  render(
+    <MonthlyCalendarTest
+      events={[{ title: 'Call bob', date: new Date(2021, 3, 4) }]}
+      currentMonth={startOfMonth(new Date(2021, 3, 1))}
+      onCurrentMonthChange={() => true}
+    />
+  );
+
+  //check that the month nav date is in chinese
+  screen.getAllByText('Monday');
+  screen.getAllByText('Tuesday');
+  screen.getAllByText('Wednesday');
+  screen.getAllByText('Thursday');
+  screen.getAllByText('Friday');
+  screen.getAllByText('Saturday');
+  screen.getAllByText('Sunday');
+});
+
+test('Renders weekdays in spanish', () => {
+  render(
+    <MonthlyCalendarTest
+      locale={es}
+      events={[{ title: 'Call bob', date: new Date(2021, 3, 4) }]}
+      currentMonth={startOfMonth(new Date(2021, 3, 1))}
+      onCurrentMonthChange={() => true}
+    />
+  );
+
+  //check that the month nav date is in chinese
+  screen.getAllByText('domingo');
+  screen.getAllByText('lunes');
+  screen.getAllByText('martes');
+  screen.getAllByText('miércoles');
+  screen.getAllByText('jueves');
+  screen.getAllByText('viernes');
+  screen.getAllByText('sábado');
 });

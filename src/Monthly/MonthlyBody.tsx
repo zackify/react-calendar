@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import { useMonthlyCalendar } from './MonthlyCalendar';
 import { daysInWeek } from '../shared';
-import { format, getDay, isSameDay } from 'date-fns';
+import { format, getDay, isSameDay, Locale } from 'date-fns';
 
 const MonthlyBodyContext = React.createContext({} as any);
 type BodyState<DayData> = {
@@ -16,15 +16,22 @@ export function useMonthlyBody<DayData>() {
 type OmittedDaysProps = {
   days: Date[];
   omitDays?: number[];
+  locale?: Locale;
 };
 
-export const handleOmittedDays = ({ days, omitDays }: OmittedDaysProps) => {
-  let headings = daysInWeek;
+export const handleOmittedDays = ({
+  days,
+  omitDays,
+  locale,
+}: OmittedDaysProps) => {
+  let headings = daysInWeek({ locale });
   let daysToRender = days;
 
   //omit the headings and days of the week that were passed in
   if (omitDays) {
-    headings = daysInWeek.filter(day => !omitDays.includes(day.day));
+    headings = daysInWeek({ locale }).filter(
+      day => !omitDays.includes(day.day)
+    );
     daysToRender = days.filter(day => !omitDays.includes(getDay(day)));
   }
 
@@ -64,10 +71,11 @@ export function MonthlyBody<DayData>({
   events,
   children,
 }: MonthlyBodyProps<DayData>) {
-  let { days } = useMonthlyCalendar();
+  let { days, locale } = useMonthlyCalendar();
   let { headings, daysToRender, padding } = handleOmittedDays({
     days,
     omitDays,
+    locale,
   });
 
   let headingClassName = 'border-b-2 p-2 border-r-2 lg:block hidden';
