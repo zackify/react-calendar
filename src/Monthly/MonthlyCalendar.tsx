@@ -59,14 +59,17 @@ export const MonthlyNav = () => {
   let { locale, currentMonth, onCurrentMonthChange } = useMonthlyCalendar();
 
   return (
-    <div className="flex justify-end mb-4">
+    <div className="rc-flex rc-justify-end rc-mb-4">
       <button
         onClick={() => onCurrentMonthChange(subMonths(currentMonth, 1))}
-        className="cursor-pointer"
+        className="rc-cursor-pointer"
       >
         Previous
       </button>
-      <div className="ml-4 mr-4 w-32 text-center" aria-label="Current Month">
+      <div
+        className="rc-ml-4 rc-mr-4 rc-w-32 rc-text-center"
+        aria-label="Current Month"
+      >
         {format(
           currentMonth,
           getYear(currentMonth) === getYear(new Date()) ? 'LLLL' : 'LLLL yyyy',
@@ -75,7 +78,7 @@ export const MonthlyNav = () => {
       </div>
       <button
         onClick={() => onCurrentMonthChange(addMonths(currentMonth, 1))}
-        className="cursor-pointer"
+        className="rc-cursor-pointer"
       >
         Next
       </button>

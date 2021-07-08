@@ -1,4 +1,8 @@
 module.exports = {
+  prefix: 'rc-',
+  corePlugins: {
+    preflight: process.env.TW_PREFLIGHT == 'false' ? false : true,
+  },
   purge: {
     content: ['./src/**/*.tsx'],
     options: {
