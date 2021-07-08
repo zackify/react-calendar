@@ -88,6 +88,14 @@ No problem! The library includes the minimal CSS required to render the componen
 import '@zach.codes/react-calendar/dist/calendar-tailwind.css';
 ```
 
+If you already have a CSS reset in your app, you can import from:
+
+```js
+import '@zach.codes/react-calendar/dist/calendar-tailwind-no-reset.css';
+```
+
+But some styles may not look the same as storybook. You can take the resets you want from the main file and put them into your app to get the styling you prefer.
+
 ## MonthlyCalendar
 
 This is a monthly view similar to react-big-calendar or a Calendar application. It makes it easy to load events 1 month at a time, and render custom elements on each day.
