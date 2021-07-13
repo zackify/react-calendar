@@ -1,12 +1,13 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0-beta",
   "license": "MIT",
   "name": "@zach.codes/react-calendar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "tw-check.js"
   ],
   "engines": {
     "node": ">=10"
@@ -15,13 +16,14 @@
     "start": "tsdx watch",
     "build": "tsdx build && npm run build-tailwind",
     "test": "tsdx test",
+    "postinstall": "node tw-check.js",
     "lint": "tsdx lint",
     "prepare": "tsdx build && npm run build-tailwind",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-tailwind": "NODE_ENV=production tailwindcss build src/tailwind.css -o dist/calendar-tailwind.css"
+    "build-tailwind": "NODE_ENV=production tailwindcss build src/tailwind.css -o dist/calendar-tailwind.css && NODE_ENV=production TW_PREFLIGHT=false tailwindcss build src/tailwind.css -o dist/calendar-tailwind-no-reset.css"
   },
   "peerDependencies": {
     "date-fns": ">=2",

@@ -61,7 +61,7 @@ type WeeklyContainerProps = {
   children: ReactNode;
 };
 export const WeeklyContainer = ({ children }: WeeklyContainerProps) => {
-  return <div className="md:flex md:justify-between">{children}</div>;
+  return <div className="md:rc-flex md:rc-justify-between">{children}</div>;
 };
 
 type DayButtonProps = {
@@ -75,17 +75,17 @@ const DayButton = ({ day }: DayButtonProps) => {
   return (
     <li
       onClick={() => changeSelectedDay(isSelected ? undefined : currentDate)}
-      className="bg-white cursor-pointer"
+      className="rc-bg-white rc-cursor-pointer"
       aria-label="Day of Week"
     >
       <div
-        className={`rounded-lg border sm:w-36 text-center py-4 ${
+        className={`rc-rounded-lg rc-border sm:rc-w-36 rc-text-center rc-py-4 ${
           isSelected
-            ? 'border-indigo-600'
-            : 'border-gray-300 hover:border-gray-500'
+            ? 'rc-border-indigo-600'
+            : 'rc-border-gray-300 hover:rc-border-gray-500'
         }`}
       >
-        <p className="font-medium text-sm text-gray-800">
+        <p className="rc-font-medium rc-text-sm rc-text-gray-800">
           {day.label} {format(currentDate, 'do', { locale })}
         </p>
       </div>
@@ -107,7 +107,7 @@ export const WeeklyDays = ({ omitDays }: WeeklyDaysProps) => {
     );
   }
   return (
-    <ul className="grid md:grid-cols-1 grid-cols-2 gap-2">
+    <ul className="rc-grid md:rc-grid-cols-1 rc-grid-cols-2 rc-gap-2">
       {daysToRender.map(day => (
         <DayButton key={day.day} day={day} />
       ))}
@@ -137,8 +137,8 @@ export function WeeklyBody<EventItem>({
 }: WeeklyBodyProps<EventItem>) {
   let { week, selectedDay } = useWeeklyCalendar();
   return (
-    <div className="overflow-auto max-h-96" style={style}>
-      <ul className="divide-y divide-gray-200 ">
+    <div className="rc-overflow-auto rc-max-h-96" style={style}>
+      <ul className="rc-divide-y rc-divide-gray-200 ">
         {events.map(item => {
           // If they select a single day, filter out events for different days
           if (selectedDay) {
@@ -163,5 +163,9 @@ export const WeeklyResponsiveContainer = ({
 }: {
   children: ReactNode;
 }) => {
-  return <div className="border p-4 md:w-3/4 lg:w-1/2 w-full">{children}</div>;
+  return (
+    <div className="rc-border rc-p-4 md:rc-w-3/4 lg:rc-w-1/2 rc-w-full">
+      {children}
+    </div>
+  );
 };

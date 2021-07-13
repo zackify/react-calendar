@@ -15,10 +15,10 @@ export const DefaultMonthlyEventItem = ({
   date,
 }: DefaultEventItemProps) => {
   return (
-    <li className="py-2">
-      <div className="flex text-sm flex-1 justify-between">
-        <h3 className="font-medium">{title}</h3>
-        <p className="text-gray-500">{date}</p>
+    <li className="rc-py-2">
+      <div className="rc-flex rc-text-sm rc-flex-1 rc-justify-between">
+        <h3 className="rc-font-medium">{title}</h3>
+        <p className="rc-text-gray-500">{date}</p>
       </div>
     </li>
   );

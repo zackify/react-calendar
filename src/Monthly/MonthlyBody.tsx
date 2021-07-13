@@ -49,11 +49,11 @@ export const handleOmittedDays = ({
 
 //to prevent these from being purged in production, we make a lookup object
 const headingClasses = {
-  l3: 'lg:grid-cols-3',
-  l4: 'lg:grid-cols-4',
-  l5: 'lg:grid-cols-5',
-  l6: 'lg:grid-cols-6',
-  l7: 'lg:grid-cols-7',
+  l3: 'lg:rc-grid-cols-3',
+  l4: 'lg:rc-grid-cols-4',
+  l5: 'lg:rc-grid-cols-5',
+  l6: 'lg:rc-grid-cols-6',
+  l7: 'lg:rc-grid-cols-7',
 };
 
 type MonthlyBodyProps<DayData> = {
@@ -78,11 +78,12 @@ export function MonthlyBody<DayData>({
     locale,
   });
 
-  let headingClassName = 'border-b-2 p-2 border-r-2 lg:block hidden';
+  let headingClassName =
+    'rc-border-b-2 rc-p-2 rc-border-r-2 lg:rc-block rc-hidden';
   return (
-    <div className="bg-white border-l-2 border-t-2">
+    <div className="rc-bg-white rc-border-l-2 rc-border-t-2">
       <div
-        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 ${
+        className={`rc-grid rc-grid-cols-1 sm:rc-grid-cols-2 md:rc-grid-cols-4 ${
           //@ts-ignore
           headingClasses[`l${headings.length}`]
         }`}
@@ -130,13 +131,15 @@ export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
   return (
     <div
       aria-label={`Events for day ${dayNumber}`}
-      className="h-48 p-2 border-b-2 border-r-2"
+      className="rc-h-48 rc-p-2 rc-border-b-2 rc-border-r-2"
     >
-      <div className="flex justify-between">
-        <div className="font-bold">{dayNumber}</div>
-        <div className="lg:hidden block">{format(day, 'EEEE', { locale })}</div>
+      <div className="rc-flex rc-justify-between">
+        <div className="rc-font-bold">{dayNumber}</div>
+        <div className="lg:rc-hidden rc-block">
+          {format(day, 'EEEE', { locale })}
+        </div>
       </div>
-      <ul className="divide-gray-200 divide-y overflow-hidden max-h-36 overflow-y-auto">
+      <ul className="rc-divide-gray-200 rc-divide-y rc-overflow-hidden rc-max-h-36 rc-overflow-y-auto">
         {renderDay(events)}
       </ul>
     </div>

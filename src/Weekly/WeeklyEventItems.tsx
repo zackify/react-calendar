@@ -15,10 +15,10 @@ export const DefaultWeeklyEventItem = ({
   date,
 }: DefaultWeeklyEventItemProps) => {
   return (
-    <li className="py-4 w-72">
-      <div className="text-sm flex justify-between">
-        <h3 className="font-medium">{title}</h3>
-        <p className="text-gray-500">{date}</p>
+    <li className="rc-py-4 rc-w-72">
+      <div className="rc-text-sm rc-flex rc-justify-between">
+        <h3 className="rc-font-medium">{title}</h3>
+        <p className="rc-text-gray-500">{date}</p>
       </div>
     </li>
   );
