@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0-beta",
+  "version": "0.3.0",
   "license": "MIT",
   "name": "@zach.codes/react-calendar",
   "main": "dist/index.js",
