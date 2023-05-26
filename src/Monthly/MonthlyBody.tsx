@@ -92,7 +92,8 @@ export function MonthlyBody<DayData>({
           <div
             key={day.day}
             className={headingClassName}
-            aria-label="Day of Week"
+            aria-label="article"
+            alt="Day of Week"
           >
             {day.label}
           </div>
@@ -101,7 +102,8 @@ export function MonthlyBody<DayData>({
           <div
             key={index}
             className={headingClassName}
-            aria-label="Empty Day"
+            aria-label="article"
+            alt="Empty Day"
           />
         ))}
         {daysToRender.map(day => (
@@ -130,7 +132,8 @@ export function MonthlyDay<DayData>({ renderDay }: MonthlyDayProps<DayData>) {
 
   return (
     <div
-      aria-label={`Events for day ${dayNumber}`}
+      aria-label="article"
+=     alt={`Events for day ${dayNumber}`}
       className="rc-h-48 rc-p-2 rc-border-b-2 rc-border-r-2"
     >
       <div className="rc-flex rc-justify-between">
