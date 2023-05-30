@@ -76,7 +76,6 @@ const DayButton = ({ day }: DayButtonProps) => {
     <li
       onClick={() => changeSelectedDay(isSelected ? undefined : currentDate)}
       className="rc-bg-white rc-cursor-pointer"
-      aria-label="article"
       title="Day of Week"
     >
       <div

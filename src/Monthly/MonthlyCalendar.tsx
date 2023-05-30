@@ -68,7 +68,6 @@ export const MonthlyNav = () => {
       </button>
       <div
         className="rc-ml-4 rc-mr-4 rc-w-32 rc-text-center"
-        aria-label="article"
         title="Current Month"
       >
         {format(
