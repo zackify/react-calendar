@@ -7,7 +7,7 @@ let check = () => {
   if (localDir === installedDir) return;
 
   //if they are not using tailwind return early
-  if (!fs.existsSync(`${installedDir}/tailwind.config.js`))
+  if (!fs.existsSync(`${installedDir}/tailwind.config.js`) && !fs.existsSync(`${installedDir}/tailwind.config.ts`))
     return console.log('no tw');
 
   const files = [
