@@ -2,7 +2,7 @@
 
 100% test coverage, responsive, and flexible event calendar for React.
 
-[See In Action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
+[See In Action](https://zackify.github.io/react-calendar/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 Backstory: After using react-big-calendar for years, I decided to create my own that is simpler to use, allows for easy customization, and uses modern React (no deprecated methods).
 
@@ -18,7 +18,7 @@ npm install @zach.codes/react-calendar date-fns
 
 ## Basic Usage
 
-[See this code in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
+[See this code in action](https://zackify.github.io/react-calendar/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ```tsx
 import { format, subHours, startOfMonth } from 'date-fns';
@@ -100,7 +100,7 @@ But some styles may not look the same as storybook. You can take the resets you 
 
 This is a monthly view similar to react-big-calendar or a Calendar application. It makes it easy to load events 1 month at a time, and render custom elements on each day.
 
-[See in action](https://calendar.zach.codes/?path=/story/monthly-calendar--basic-monthly-calendar)
+[See in action](https://zackify.github.io/react-calendar/?path=/story/monthly-calendar--basic-monthly-calendar)
 
 ### Props
 
@@ -126,7 +126,7 @@ No props at this time
 
 View 1 week at a time, useful for scheduling appointments, or rendering events in a smaller area of the screen
 
-[See in action](https://calendar.zach.codes/?path=/story/weekly-calendar--basic-weekly-calendar)
+[See in action](https://zackify.github.io/react-calendar/?path=/story/weekly-calendar--basic-weekly-calendar)
 
 ```js
 <WeeklyCalendar week={new Date()}>
